@@ -29,7 +29,7 @@ dash:
       icon: twitter-square
       color: green
     - url: https://t.me/m4dm0e
-      icon: telegram-square
+      icon: telegram-plane
       color: red
     - url: https://github.com/m4dm0e
       icon: github-square
