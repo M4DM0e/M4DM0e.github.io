@@ -29,7 +29,7 @@ dash:
       icon: twitter-square
       color: green
     - url: https://moe.grodriket.com
-      icon: itch-io
+      icon: hackerone-square
       color: red
     - url: https://github.com/m4dm0e
       icon: github-square
