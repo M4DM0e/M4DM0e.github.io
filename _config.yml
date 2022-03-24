@@ -2,8 +2,8 @@ title: M0e
 author: Mohammed F. Al-Barbari
 email: moe@grodriket.com
 description: > # this means to ignore newlines until "show_exerpts:"
-  Hi there, I am Mohammed Fadhl Al-Barbari 18 y/o cyber security researcher , Web dev/tester, Mobile applications dev/tester, tools builder and Bugs hunter .
-  Hacker since 2015
+  Hi there, I am Mohammed Fadhl Al-Barbari 19 y/o cyber security researcher, Web developer & pentester, Mobile applications developer, tools builder, and Bugs hunter.
+
 show_excerpts: false # set to true to show excerpts on the homepage
 
 paginate: 5
@@ -28,8 +28,8 @@ dash:
     - url: https://twitter.com/m4dm0e
       icon: twitter-square
       color: green
-    - url: https://t.me/m4dm0e
-      icon: telegram-plane
+    - url: https://www.linkedin.com/in/albarbari/
+      icon: linkedin-square
       color: red
     - url: https://github.com/m4dm0e
       icon: github-square
