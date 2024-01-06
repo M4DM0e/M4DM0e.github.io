@@ -17,7 +17,7 @@ I am Mohammed Fadhl Al-Barbari, a cybersecurity researcher, tool developer, and 
 **Twitter**:     [Mohammed Al-Barbari](https://twitter.com/m4dm0e)  
 **LinkedIn**:     [Mohammed Al-Barbari](https://www.linkedin.com/in/albarbari/)
 
-**It's my first writeup, so excuse any mistakes (thanks, ChatGPT for having my back)!**
+**It's my first write-up, so excuse any mistakes (thanks, ChatGPT for having my back)!**
 
 ## Diving into the Discovery: A December to Remember
 In December, I discovered a critical bug on HackerOne. A private program was vulnerable to a full account takeover due to misconfigurations in Amazon Cognito.
@@ -28,7 +28,7 @@ Why is this significant? Well, even after the account owner changes their passwo
 
 
 ## Introduction:
-While testing an app, which I'll refer to as `redacted.com`, focused on cashback and vouchers, I noticed it used Amazon Cognito-IDP for login and sign-up processes. Cognito-IDP is known for some misconfiguration vulnerabilities, as highlighted in several other write-ups:
+While testing an app, which I'll refer to as `redacted.com`, focused on cashback and vouchers, I noticed it uses Amazon Cognito-IDP for login and sign-up processes. Cognito-IDP is known for some misconfiguration vulnerabilities, as highlighted in several other write-ups:
 
 [Amazon cognito misconfiguration](https://systemweakness.com/amazon-cognito-misconfiguration-4e90d14377c7)  
 [Hunting For AWS Cognito Security Misconfigurations](https://www.yassineaboukir.com/talks/NahamConEU2022.pdf)  
@@ -37,16 +37,16 @@ While testing an app, which I'll refer to as `redacted.com`, focused on cashback
 
 
 ### What is Cognito-IDP?
->Amazon Cognito provides authentication, authorization, and user management for customer's web and mobile applications. Users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, Google, Apple, or enterprise identity providers via SAML 2.0 and OpenID Connect.
+>Amazon Cognito provides authentication, authorization, and user management for customer's web and mobile applications. Users can sign in directly with a username and password, or through a third party such as Facebook, Amazon, Google, Apple, or enterprise identity providers via SAML 2.0 and OpenID Connect.
 
-**Note:** There was two apps in scope were using cognito-idp. let's call them `redacted.com` and `redacted2.com` 
+**Note:** Two apps in scope were using cognito-IDP. let's call them `redacted.com` and `redacted2.com` 
 
 After seeing Cognito-IDP,  I spent a couple of days checking it out. Most of the things I found didn't apply to what I was testing.
 
-I spent most the time testing `redacted.com` and there was only one bug I was able to find but unfortunatlly it was almost impossible to get an account takeover. 
-Moreover, if you gain access to the victim's account, you can render it inaccessible to the victim, preventing their login.
+I spent most of the time testing `redacted.com` and there was only one bug I was able to find but unfortunately it was almost impossible to get an account takeover. 
+Moreover, if you gain access to the victim's account, you can make it inaccessible to the victim, preventing their login.
 
-### Changing account's email without OTP code:
+### Changing the account's email without the OTP code:
 
 While logged in, changing the email address typically requires OTP verification. 
 ![image](../../../../assets/images/emailchanging.png)
@@ -58,7 +58,7 @@ Example AWS CLI command to view user attributes:
 ```bash
 aws cognito-idp get-user --access-token [ACCESS_TOKEN] --region REGION
 ```
-You will need the access token of the account to view or modify user attributes. (Also, Region is needed but most of the time you will find it out from the app requests)
+You will need the account's access token to view or modify user attributes. (Also, Region is needed but most of the time you will find it out from the app requests)
 ![image](../../../../assets/images/getuserinfo.png)
 
 
@@ -136,7 +136,7 @@ Te: trailers
 
 ![Alt Text](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnJoNWdmdXpybnB0OWQyd253czhoamF3cWtyand5ZGR1ZGJyd2ttYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Sqfu14lSonVN219Zb6/giphy.gif)
 
-I was happy that the account is created, but it didn't last so long, lol. When I tried to log in to redacted2.com, it shows that the email or password is incorrect :(
+I was happy that the account was created, but it didn't last so long, lol. When I tried to log in to redacted2.com, it showed that the email or password was incorrect :(
 
 ![Alt Text](https://media1.giphy.com/media/3o7btYLAW7doynq3p6/giphy.gif?cid=ecf05e47xfgoyljpem9hieta41yq3mjeci4e6ux5sv42h67a&ep=v1_gifs_search&rid=giphy.gif&ct=g)
 
@@ -147,7 +147,7 @@ It responded with AccessToken, and refreshToken.
 
 I realized that the application is not considering the uppercase in the email address, and it will only log you in if you have the real password. However, using AWS CLI, the email is case-sensitive, and it sees `tEstPoc1@mailna.co` and `testpoc1@mailna.co` as different accounts. But it gives the same AccessToken, so the AccessToken I got from AWS CLI I used in the application, and it logged me into the victim's account.
 
-So, an attacker can basically get an AccessToken of the victim's account from the AWS CLI while the victim can log in to the account using the real password. No matter how many times the victim changes the password, an attacker will always be able to log in using the case-sensitive email and password set while taking the victim's account over!
+So, an attacker can get an AccessToken of the victim's account from the AWS CLI while the victim can log in to the account using the real password. No matter how many times the victim changes the password, an attacker will always be able to log in using the case-sensitive email and password set while taking the victim's account over!
 
 
 ![Alt Text](https://media0.giphy.com/media/25JGQ0SPpafi8/giphy.gif?cid=ecf05e477jlkbjzeus3osgri2a7rwtyj2pxnd5quolrd5ucu&ep=v1_gifs_search&rid=giphy.gif&ct=g)
