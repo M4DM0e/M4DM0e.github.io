@@ -10,9 +10,9 @@ Hi there, I'm Mohammed Fadhl Al-Barbari, 19 y/o from Yemen. I'm a cybersecurity 
 
 ## Certifications 
 
-| eWPTXv2          |
-| CEH Practical          |
-| eMPT -> Soon          |
+| eWPTXv2  ✓        |
+| CEH Practical ✓         |
+| eMPT ✓          |
 
 ## CVEs 
 
