@@ -10,7 +10,7 @@ author:
 
 ### السلام عليكم ورحمة الله وبركاتة 
 ## Who am I?
-I am Mohammed Fadhl Al-Barbari, a cybersecurity researcher, tool developer, and bug hunter from Yemen, active on platforms such as HackerOne (H1), BugCrowd, and SRT.
+I am Mohammed Fadhl Al-Barbari, a cybersecurity researcher, tools builder, and bug hunter from Yemen, active on platforms such as HackerOne (H1), BugCrowd, and SRT.
 
 ## Connect with me on:
 
