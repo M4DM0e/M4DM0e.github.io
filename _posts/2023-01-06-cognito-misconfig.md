@@ -14,8 +14,7 @@ I am Mohammed Fadhl Al-Barbari, a cybersecurity researcher, tool developer, and 
 
 ## Connect with me on:
 
-**Twitter**:     [Mohammed Al-Barbari](https://twitter.com/m4dm0e)
-
+**Twitter**:     [Mohammed Al-Barbari](https://twitter.com/m4dm0e)  
 **LinkedIn**:     [Mohammed Al-Barbari](https://www.linkedin.com/in/albarbari/)
 
 **It's my first writeup, so excuse any mistakes (thanks, ChatGPT for having my back)!**
