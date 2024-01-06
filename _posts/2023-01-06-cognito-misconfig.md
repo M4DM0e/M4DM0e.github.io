@@ -13,7 +13,9 @@ author:
 I am Mohammed Fadhl Al-Barbari, a cybersecurity researcher, tool developer, and bug hunter from Yemen, active on platforms such as HackerOne (H1), BugCrowd, and SRT.
 
 ## Connect with me on:
+
 **Twitter**:     [Mohammed Al-Barbari](https://twitter.com/m4dm0e)
+
 **LinkedIn**:     [Mohammed Al-Barbari](https://www.linkedin.com/in/albarbari/)
 
 **It's my first writeup, so excuse any mistakes (thanks, ChatGPT for having my back)!**
@@ -30,9 +32,13 @@ Why is this significant? Well, even after the account owner changes their passwo
 While testing an app, which I'll refer to as `redacted.com`, focused on cashback and vouchers, I noticed it used Amazon Cognito-IDP for login and sign-up processes. Cognito-IDP is known for some misconfiguration vulnerabilities, as highlighted in several other write-ups:
 
 [Amazon cognito misconfiguration](https://systemweakness.com/amazon-cognito-misconfiguration-4e90d14377c7)
+
 [Hunting For AWS Cognito Security Misconfigurations](https://www.yassineaboukir.com/talks/NahamConEU2022.pdf)
+
 [Hacking AWS Cognito Misconfigurations](https://notsosecure.com/hacking-aws-cognito-misconfigurations)
+
 [Flickr Account Takeover](https://security.lauritz-holtmann.de/advisories/flickr-account-takeover/)
+
 
 ### What is Cognito-IDP?
 >Amazon Cognito provides authentication, authorization, and user management for customer's web and mobile applications. Users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, Google, Apple, or enterprise identity providers via SAML 2.0 and OpenID Connect.
@@ -47,7 +53,7 @@ Moreover, if you gain access to the victim's account, you can render it inaccess
 ### Changing account's email without OTP code:
 
 While logged in, changing the email address typically requires OTP verification. 
-![image](../../../assets/images/emailchanging.png)
+![image](../../../../assets/images/emailchanging.png)
 
 
 However, I discovered that using AWS CLI commands to retrieve user information and modify user attributes bypassed this requirement.
@@ -57,7 +63,7 @@ Example AWS CLI command to view user attributes:
 aws cognito-idp get-user --access-token [ACCESS_TOKEN] --region REGION
 ```
 You will need the access token of the account to view or modify user attributes. (Also, Region is needed but most of the time you will find it out from the app requests)
-![image](../../../assets/images/getuserinfo.png)
+![image](../../../../assets/images/getuserinfo.png)
 
 
 After viewing the user attributes, I tried the first scenario, changing the email to an existing email. (It worked, but you can't verify it, so it is useless)
@@ -67,7 +73,7 @@ To change the email:
 aws cognito-idp update-user-attributes   --user-attributes Name=email,Value="newEmail@mailna.co" --access-token  [ACCESS_TOKEN] --region REGION
 ```
 This command didn't show any output for me, so right after executing the command, I tried to retrieve users' info using the command I used before.
-![image](../../../assets/images/emailischanged.png)
+![image](../../../../assets/images/emailischanged.png)
 
 Though this changes the email, it remains unverified, preventing login or password reset.
 If you log out, you can't log in again or even reset your password. You have to contact support to delete your account and make a new one.
