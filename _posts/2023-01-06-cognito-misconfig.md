@@ -15,7 +15,7 @@ I am Mohammed Fadhl Al-Barbari, a cybersecurity researcher, tool developer, and 
 ## Connect with me on:
 
 **Twitter**:     [Mohammed Al-Barbari](https://twitter.com/m4dm0e)  
-**LinkedIn**:     [Mohammed Al-Barbari](https://www.linkedin.com/in/albarbari/)
+**LinkedIn**:     [Mohammed Al-Barbari](https://www.linkedin.com/in/albarbari/)  
 
 **It's my first write-up, so excuse any mistakes (thanks, ChatGPT for having my back)!**
 
@@ -38,6 +38,7 @@ While testing an app, which I'll refer to as `redacted.com`, focused on cashback
 
 ### What is Cognito-IDP?
 >Amazon Cognito provides authentication, authorization, and user management for customer's web and mobile applications. Users can sign in directly with a username and password, or through a third party such as Facebook, Amazon, Google, Apple, or enterprise identity providers via SAML 2.0 and OpenID Connect.
+
 
 **Note:** Two apps in scope were using cognito-IDP. let's call them `redacted.com` and `redacted2.com` 
 
@@ -134,6 +135,9 @@ Te: trailers
 {"UserConfirmed":true,"UserSub":"b627........"}
 ```
 
+![image](../../../../assets/images/diagram.jpg)
+
+
 ![Alt Text](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnJoNWdmdXpybnB0OWQyd253czhoamF3cWtyand5ZGR1ZGJyd2ttYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Sqfu14lSonVN219Zb6/giphy.gif)
 
 I was happy that the account was created, but it didn't last so long, lol. When I tried to log in to redacted2.com, it showed that the email or password was incorrect :(
@@ -147,7 +151,13 @@ It responded with AccessToken, and refreshToken.
 
 I realized that the application is not considering the uppercase in the email address, and it will only log you in if you have the real password. However, using AWS CLI, the email is case-sensitive, and it sees `tEstPoc1@mailna.co` and `testpoc1@mailna.co` as different accounts. But it gives the same AccessToken, so the AccessToken I got from AWS CLI I used in the application, and it logged me into the victim's account.
 
+![image](../../../../assets/images/takeoverscript.png)
+
 So, an attacker can get an AccessToken of the victim's account from the AWS CLI while the victim can log in to the account using the real password. No matter how many times the victim changes the password, an attacker will always be able to log in using the case-sensitive email and password set while taking the victim's account over!
 
 
+
 ![Alt Text](https://media0.giphy.com/media/25JGQ0SPpafi8/giphy.gif?cid=ecf05e477jlkbjzeus3osgri2a7rwtyj2pxnd5quolrd5ucu&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
+
+I hope you have enjoyed this post. If you have any questions or thoughts, feel free to share them with me on [Twitter](https://twitter.com/m4dm0e)  
