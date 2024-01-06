@@ -2,7 +2,7 @@ title: Mohammed Al-Barbari
 description: The personal blog of Mohammed Al-Barbari
 url: https://m4dm0e.github.io
 author: Mohammed Al-Barbari
-avatar: /logo.png
+avatar: /logo2.png
 email: moe@grodriket.com
 location: AlJawf, Yemen
 
@@ -41,7 +41,7 @@ defaults:
     values:
       layout: "post"
       author: "Mohammed Al-Barbari"
-      image: "logo.png"
+      image: "logo2.png"
       share: true
   - scope:
       path: ""      
@@ -49,13 +49,13 @@ defaults:
     values:
       layout: "page"
       author: "Mohammed Al-Barbari"
-      image: "logo.png"
+      image: "logo2.png"
 
 
 twitter:
   username: m4dm0e
   card: summary
-logo: logo.png
+logo: logo2.png
 social:
   name: Mohammed Al-Barbari
   links:
