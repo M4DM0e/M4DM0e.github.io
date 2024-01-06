@@ -135,6 +135,8 @@ Te: trailers
 {"UserConfirmed":true,"UserSub":"b627........"}
 ```
 
+
+A Visual Guide to the Bug.  
 ![image](../../../../assets/images/diagram.jpg)
 
 
