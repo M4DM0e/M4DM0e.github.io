@@ -30,13 +30,10 @@ Why is this significant? Well, even after the account owner changes their passwo
 ## Introduction:
 While testing an app, which I'll refer to as `redacted.com`, focused on cashback and vouchers, I noticed it used Amazon Cognito-IDP for login and sign-up processes. Cognito-IDP is known for some misconfiguration vulnerabilities, as highlighted in several other write-ups:
 
-[Amazon cognito misconfiguration](https://systemweakness.com/amazon-cognito-misconfiguration-4e90d14377c7)
-
-[Hunting For AWS Cognito Security Misconfigurations](https://www.yassineaboukir.com/talks/NahamConEU2022.pdf)
-
-[Hacking AWS Cognito Misconfigurations](https://notsosecure.com/hacking-aws-cognito-misconfigurations)
-
-[Flickr Account Takeover](https://security.lauritz-holtmann.de/advisories/flickr-account-takeover/)
+[Amazon cognito misconfiguration](https://systemweakness.com/amazon-cognito-misconfiguration-4e90d14377c7)  
+[Hunting For AWS Cognito Security Misconfigurations](https://www.yassineaboukir.com/talks/NahamConEU2022.pdf)  
+[Hacking AWS Cognito Misconfigurations](https://notsosecure.com/hacking-aws-cognito-misconfigurations)  
+[Flickr Account Takeover](https://security.lauritz-holtmann.de/advisories/flickr-account-takeover/)  
 
 
 ### What is Cognito-IDP?
